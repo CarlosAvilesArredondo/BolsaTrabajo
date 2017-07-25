@@ -1,0 +1,98 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+					"username": "test",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"is_staff": "True"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+					"username": "test-enterprise1",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"is_staff": "False"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 3,
+        "fields": {
+					"username": "test-enterprise2",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"is_staff": "False"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 4,
+        "fields": {
+					"username": "test-enterprise3",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"is_staff": "False",
+					"email": "test@example.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 5,
+        "fields": {
+					"username": "test-student1",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"first_name": "testName1",
+					"is_staff": "False"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 6,
+        "fields": {
+					"username": "test-student2",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"is_staff": "False"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 7,
+        "fields": {
+					"username": "test-student3",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"is_staff": "False"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 8,
+        "fields": {
+					"username": "pedrito",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"is_staff": "False",
+					"is_active": "True",
+					"email": "pedrito@dcc.uchile.cl"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 9,
+        "fields": {
+					"username": "malito",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"is_staff": "False",
+					"is_active": "True",
+					"email": "malito@gmail.com"
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 10,
+        "fields": {
+					"username": "sandra",
+					"password": "sha1$011ee$bbce191e8563865c2260db4c91683b83ad98c2ec",
+					"is_staff": "True"
+        }
+    }
+]

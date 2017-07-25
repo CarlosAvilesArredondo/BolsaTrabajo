@@ -1,0 +1,47 @@
+{% extends 'account/base.html' %}
+
+{% block header %}
+	<script type="text/javascript" src="/media/js/tags_autocomplete.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $.datepicker.setDefaults($.datepicker.regional["es"]);
+            $(".datePicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                minDate: "{{offer_form.min_date.isoformat}}",
+                maxDate: "{{offer_form.max_date.isoformat}}"
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block main %}
+
+<div class="breadcrumbs"><a href="{% url bolsa_trabajo.views_account.index %}">Inicio</a> &gt; <a href="{% url bolsa_trabajo.views_enterprise.offer %}">Ofertas laborales</a> &gt; <a href="{% url bolsa_trabajo.views_enterprise.offer_details offer.id %}">{{ offer.title }}</a> &gt; <a href="{% url bolsa_trabajo.views_enterprise.edit_offer offer.id %}">Editar</a></div>
+
+    <h2>Edición de oferta</h2>
+    
+    <p>Utilice el siguiente formulario para editar la oferta laboral</p>
+   
+    <form method="post" action="">
+        {% csrf_token %}
+        {% if error %}
+            <div class="errorlist">{{ error }}</div>
+        {% endif %}
+        <table class="table_no_width">
+            {{ offer_form.as_table }}
+        </table>
+        <input type="submit" value="Guardar cambios" />
+    </form>
+    
+<br /> 
+
+<h2>Cerrar la Oferta</h2>
+<form action="{% url enterprise_close_offer offer.id %}" method="post" onsubmit="return confirm('¿Está seguro que desea cerrar la oferta? El proceso no es reversible');">
+    {% csrf_token %}
+    <table>
+    {{ close_form.as_table }}
+    </table>
+    <input type="submit" value="Cerrar Oferta" />
+</form>
+
+{% endblock %}

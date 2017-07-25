@@ -1,0 +1,38 @@
+{% extends 'account/base.html' %}
+
+{% block header %}
+	<script type="text/javascript" src="/media/js/tags_autocomplete.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $.datepicker.setDefaults($.datepicker.regional["es"]);
+            $(".datePicker").datepicker({
+                dateFormat: "yy-mm-dd",
+                minDate: "{{offer_form.min_date.isoformat}}",
+                maxDate: "{{offer_form.max_date.isoformat}}"
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block main %}
+
+<div class="breadcrumbs"><a href="{% url bolsa_trabajo.views_account.index %}">Inicio</a> &gt; <a href="{% url bolsa_trabajo.views_enterprise.offer %}">Ofertas laborales</a> &gt; <a href="{% url bolsa_trabajo.views_enterprise.add_offer %}">Nueva oferta</a></div>
+
+    <h2>Formulario de creación de oferta laboral</h2>
+    
+    <p>Utilice el siguiente formulario para crear una nueva oferta laboral</p>
+	<div class="notice">
+		<p>Haga click <a href="http://www.dcc.uchile.cl/node/230" target="_blank">aqu&iacute;</a> e ingrese a la secci&oacute;n "Recomendaciones para pr&aacute;cticas profesionales" para obtener informaci&oacute;n sobre los distintos requerimientos de cada nivel de pr&aacute;tica.<p>
+    </div>
+	<form method="post" action="">
+        {% csrf_token %}
+        {% if error %}
+            <div class="errorlist">{{ error }}</div>
+        {% endif %}
+        <table class="table_no_width">
+            {{ offer_form.as_table }}
+        </table>
+        <input type="submit" value="Crear oferta" />
+    </form>
+
+{% endblock %}

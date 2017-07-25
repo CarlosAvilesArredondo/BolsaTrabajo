@@ -1,0 +1,22 @@
+[
+    {
+        "model": "bolsa_trabajo.user_profile",
+        "pk": 1,
+        "fields": {
+                    "validated_email": True,
+                    "user": 1,
+                    "tags": 1,
+                    "block_public_access": False
+        }
+    },
+    {
+        "model": "bolsa_trabajo.user_profile",
+        "pk": 2,
+        "fields": {
+                    "validated_email": True,
+                    "name": 2,
+                    "tags": 2,
+                    "block_public_access": False
+        }
+    }
+]

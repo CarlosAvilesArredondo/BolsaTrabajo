@@ -1,0 +1,40 @@
+{% extends 'account/base.html' %}
+
+{% block main %}
+
+<div class="breadcrumbs"><a href="{% url bolsa_trabajo.views_account.index %}">Inicio</a> &gt; <a href="{% url bolsa_trabajo.views_enterprise.offer %}">Ofertas laborales</a> &gt; <a href="{% url bolsa_trabajo.views_enterprise.offer_details offer.id %}">{{ offer.title }}</a></div>
+
+    <h2>Detalles de la oferta</h2>
+    
+    <ul>
+        <li><b>Título:</b> {{ offer.title }}</li>
+        <li><b>Descripción:</b> {{ offer.description|linebreaks }}</li>
+        <li><b>Sueldo líquido:</b> {{ offer.get_salary_string }}</li>
+        <li><b>Puestos disponibles:</b> {{ offer.get_available_slots_string }}</li>
+        <li><b>Nivel:</b> {{ offer.get_level_string }}</li>
+        <li><b>Fecha creación:</b> {{ offer.creation_date.date }}</li>
+        <li><b>Fecha cierre:</b> {{ offer.end_date }}</li>
+        <li><b>Términos clave:</b> {{ offer.get_tags_string }}</li>
+    </ul>
+	
+<br />
+{% if not offer.is_closed %}
+    <p><a href="{% url bolsa_trabajo.views_enterprise.edit_offer offer.id %}">Editar la oferta</a></p>
+    <p><a href="{% url bolsa_trabajo.views_enterprise.offer_postulations offer.id %}">Ver postulaciones</a></p>
+{% else %}
+    {% if not offer.is_closed_by_admin %}
+    	<form method="post" action="">
+            {% csrf_token %}
+            {% if error %}
+                <div class="errorlist">{{ error }}</div>
+            {% endif %}
+            <table class="table_no_width">
+                {{ offer_form.as_table }}
+            </table>
+            <input type="submit" value="Guardar cambios" />
+        </form>
+    {% endif %}
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,82 @@
+[
+    {
+        "model": "bolsa_trabajo.OfferLevel",
+        "pk": 1,
+        "fields": {
+            "name": "Práctica I",
+            "minimum_salary": 0
+        }
+    },
+    {
+        "model": "bolsa_trabajo.OfferLevel",
+        "pk": 2,
+        "fields": {
+            "name": "Práctica II",
+            "minimum_salary": 0
+        }
+    },
+    {
+        "model": "bolsa_trabajo.OfferLevel",
+        "pk": 3,
+        "fields": {
+            "name": "Práctica III",
+            "minimum_salary": 0
+        }
+    },
+    {
+        "model": "bolsa_trabajo.OfferLevel",
+        "pk": 4,
+        "fields": {
+            "name": "Trabajo media jornada",
+            "minimum_salary": 0
+        }
+    },
+    {
+        "model": "bolsa_trabajo.OfferLevel",
+        "pk": 5,
+        "fields": {
+            "name": "Trabajo jornada completa",
+            "minimum_salary": 0
+        }
+    },
+    {
+        "model": "bolsa_trabajo.StudentLevel",
+        "pk": 1,
+        "fields": {
+            "name": "Pregrado",
+            "ordering": 1
+        }
+    },
+    {
+        "model": "bolsa_trabajo.StudentLevel",
+        "pk": 2,
+        "fields": {
+            "name": "Egresado",
+            "ordering": 2
+        }
+    },
+    {
+        "model": "bolsa_trabajo.StudentLevel",
+        "pk": 3,
+        "fields": {
+            "name": "Titulado",
+            "ordering": 3
+        }
+    },
+    {
+        "model": "bolsa_trabajo.StudentLevel",
+        "pk": 4,
+        "fields": {
+            "name": "Magíster",
+            "ordering": 4
+        }
+    },
+    {
+        "model": "bolsa_trabajo.StudentLevel",
+        "pk": 5,
+        "fields": {
+            "name": "Doctorado",
+            "ordering": 5
+        }
+    }
+]

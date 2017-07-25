@@ -1,0 +1,53 @@
+{% extends 'base_two_columns.html' %}
+
+{% block sidebar %}
+<div class="box">
+	<div class="box-title">Herramientas</div>
+
+	<div class="box-content">
+		<ul class="nice-list">
+			{% if user.profile.is_enterprise %}
+			    <li>
+			        {% if user.is_active and user.profile.approved %}
+			            <a href="{% url bolsa_trabajo.views_enterprise.offer %}">Avisos laborales</a>
+			        {% else %}
+			            <span class="disabled">Avisos laborales</span>
+			        {% endif %}
+		        </li>
+		    {% endif %}
+			<li>
+		        {% if user.is_active and user.profile.approved or user.is_active and user.is_staff %}
+		            <a href="{% url bolsa_trabajo.views_account.notification %}">Notificaciones {% if num_notifications %}({{ num_notifications }}){% endif %}</a>
+		        {% else %}
+		            <span class="disabled">Notificaciones</span>
+		        {% endif %}
+			</li>
+			<li>
+		        {% if user.is_active and user.profile.approved or user.is_active and user.is_staff %}
+		            {% if user.profile.is_student and user.profile.block_public_access %}
+		                Perfil público desactivado
+		            {% else %}
+		                <a href="{% url bolsa_trabajo.views_account.public_profile %}">Ver perfil público</a>
+	                {% endif %}
+		        {% else %}
+		            <span class="disabled">Ver perfil público</span>
+		        {% endif %}
+			</li>
+		</ul>
+	</div>
+
+</div>
+
+<div class="box">
+
+	<div class="box-title">Recursos</div>
+
+	<div class="box-content">
+		<ul class="nice-list">
+			<li><a href="{% url bolsa_trabajo.views_account.edit_profile %}">Editar perfil</a></li>
+			<li><a href="{% url bolsa_trabajo.views_account.change_email %}">Cambiar mail</a></li>
+			<li><a href="{% url bolsa_trabajo.views_account.change_password %}">Cambiar contraseña</a></li>
+		</ul>
+	</div>
+</div>
+{% endblock %}
